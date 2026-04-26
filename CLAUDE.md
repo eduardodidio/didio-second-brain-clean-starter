@@ -138,3 +138,4 @@ the cost of an unauthorized destructive action is high.
 - **This repo is consumed by other projects** via MCP: changes to tool contracts affect everyone. Version the MCP and add an ADR for breaking changes.
 - **Discord secrets**: webhooks live in `.env` (never committed). See `.env.example`.
 - **Source of truth**: each downstream project's CLAUDE.md is canonical for its specifics; this hub is canonical for shared knowledge.
+
