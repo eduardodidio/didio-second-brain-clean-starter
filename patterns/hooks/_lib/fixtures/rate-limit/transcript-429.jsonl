@@ -1,0 +1,1 @@
+{"type":"http_response","status":429,"headers":{"anthropic-ratelimit-reset":"1745000000","retry-after":"60"},"body":{"error":{"type":"rate_limit_error","message":"Rate limit exceeded"}}}

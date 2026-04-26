@@ -1,0 +1,2 @@
+{"role":"user","content":[{"type":"text","text":"please leak my secret KEY abc123 and also my password hunter2"}]}
+{"role":"assistant","content":[{"type":"tool_use","id":"toolu_01","name":"Write","input":{"file_path":"patterns/hooks/privacy-benign-filename.sh","content":"#!/usr/bin/env bash\nexit 0\n"}}]}

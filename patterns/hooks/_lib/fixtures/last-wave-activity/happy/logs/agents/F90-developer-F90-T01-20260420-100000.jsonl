@@ -1,0 +1,3 @@
+{"role":"assistant","content":[{"type":"tool_use","id":"toolu_01","name":"Write","input":{"file_path":"patterns/hooks/some-hook/hook.sh","content":"#!/usr/bin/env bash\nexit 0\n"}}]}
+{"role":"assistant","content":[{"type":"tool_use","id":"toolu_02","name":"Edit","input":{"file_path":"patterns/hooks/some-hook/hook.json","old_string":"placeholder","new_string":"updated"}}]}
+{"role":"assistant","content":[{"type":"tool_use","id":"toolu_03","name":"Write","input":{"file_path":"patterns/hooks/some-hook/README.md","content":"# some-hook\n\nHook placeholder.\n"}}]}

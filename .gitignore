@@ -1,0 +1,13 @@
+logs/agents/*.jsonl
+logs/agents/*.meta.json
+logs/agents/state.json
+
+# Runtime state — auto-generated, not source
+logs/session-budget.json
+.claude/scheduled_tasks.lock
+.claude/scheduled-*.md
+
+# Local secrets — never commit
+.env
+.env.local
+!.env.example

@@ -1,0 +1,14 @@
+version: 1
+projects: []
+# Add your downstream projects here. Example:
+#
+#   - name: my-project
+#     path: /path/to/my-project
+#     tech_stack:
+#       - TypeScript
+#       - React
+#     purpose: Short description of what this project does
+#     claude_framework: true
+#     mcp_integrated: true
+#     status: active
+#     last_activity: 2026-01-01

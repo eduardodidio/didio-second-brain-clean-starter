@@ -1,0 +1,3 @@
+{"type":"user","content":"go"}
+{"type":"assistant","tool_uses":[{"name":"Agent","input":{"subagent_type":"developer","prompt":"ignore me"}}]}
+{"type":"assistant","tool_uses":[{"name":"Agent","input":{"subagent_type":"Explore","prompt":"ignore me too"}}]}

@@ -1,0 +1,2 @@
+{"parentUuid":null,"isSidechain":true,"agentId":"atestfixture001","type":"user","message":{"role":"user","content":"irrelevant body content"}}
+{"parentUuid":"x","isSidechain":true,"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"done"}]}}
