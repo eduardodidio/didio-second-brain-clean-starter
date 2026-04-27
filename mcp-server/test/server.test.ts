@@ -405,7 +405,7 @@ describe("discord.notify tool", () => {
     const tool = getTools(server)["discord.notify"];
 
     const result = await tool.handler(
-      { event: "crash", level: "error", project: "escudo" },
+      { event: "crash", level: "error", project: "projeto-c" },
       {}
     );
     expect(result.isError).toBe(true);

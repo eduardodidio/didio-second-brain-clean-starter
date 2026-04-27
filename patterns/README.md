@@ -86,7 +86,7 @@ LOG="$PROJECT_ROOT/logs/hook.log"
 ```markdown
 ---
 type: agent
-projects: [blind-warrior, access-play-create]
+projects: [projeto-a, projeto-b]
 tags: [accessibility, wcag, review]
 ---
 

@@ -1,6 +1,6 @@
 ---
 feature: F92
-project: mellon-bot
+project: projeto-d
 created: 2026-04-25T20:00:00Z
 source_commits:
   - ghi9012

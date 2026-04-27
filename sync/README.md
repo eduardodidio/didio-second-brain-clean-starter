@@ -71,11 +71,11 @@ exit code 4.
 Estado pós-F05.b: 6/6 projetos didio têm `mcp_integrated: true` em
 [`projects/registry.yaml`](../projects/registry.yaml):
 
-1. `blind-warrior`
-2. `access-play-create`
-3. `escudo-do-mestre-v1`
-4. `mellon-bot`
-5. `mellon-magic-maker`
+1. `projeto-a`
+2. `projeto-b`
+3. `projeto-c`
+4. `projeto-d`
+5. `projeto-e`
 6. `claude-didio-config` (piloto F05)
 
 Para adicionar um projeto novo:
@@ -83,7 +83,7 @@ Para adicionar um projeto novo:
 ```bash
 # 1. Adicione entrada em projects/registry.yaml (mcp_integrated: false)
 # 2. Rode:
-bash sync/install-mcp-in-project.sh /Users/eduardodidio/<novo-projeto>
+bash sync/install-mcp-in-project.sh /path/to/<novo-projeto>
 ```
 
 Hooks Discord já cobrem qualquer projeto novo automaticamente

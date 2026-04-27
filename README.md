@@ -96,12 +96,12 @@ flowchart TD
 
   FW["claude-didio-config\n(workflow framework)"]
 
-  subgraph downstream["6 downstream projects"]
-    P1["blind-warrior"]
-    P2["access-play-create"]
-    P3["escudo-do-mestre-v1"]
-    P4["mellon-bot"]
-    P5["mellon-magic-maker"]
+  subgraph downstream["downstream projects"]
+    P1["Projeto A"]
+    P2["Projeto B"]
+    P3["Projeto C"]
+    P4["Projeto D"]
+    P5["Projeto E"]
     P6["claude-didio-config (self)"]
   end
 
@@ -159,4 +159,4 @@ bash sync/tests/run-all.sh
 ## Credits
 
 Built on top of [`claude-didio-config`](https://github.com/eduardodidio/claude-didio-config) by Eduardo Didio.
-Conceptually inspired by [`second-brain-starter`](https://github.com/marciohideaki/second-brain-starter) by Marcio Hideaki (MIT).
+Conceptually inspired by [`second-brain-starter`](https://github.com/marciohideaki/second-brain-starter) by **Marcio Hideaki** (MIT) — a great professional who goes far beyond technical inspiration, dedicated to teaching and a strong advocate for Artificial Intelligence. Thank you so much, Maebara :)

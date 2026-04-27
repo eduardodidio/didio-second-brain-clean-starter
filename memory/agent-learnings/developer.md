@@ -180,7 +180,7 @@ to miss an alert than to spam.
 **(c) Idempotência via `fs.rename` para `_processed/` é mais barata que lock:** After absorption, the drop is renamed into `_processed/` — a single atomic FS operation that acts as the commit marker. A 2nd run finds the file gone from `_pending-digest/` and skips it cleanly. Dry-run mode writes the `digested:` timestamp to frontmatter but does NOT rename, so the drop remains available for a real run. This is cheaper and more correct than any lock-file approach.
 ## F09 — 2026-04-26
 
-(digested from blind-warrior:F09 at 2026-04-26T08:20:54.260Z)
+(digested from projeto-a:F09 at 2026-04-26T08:20:54.260Z)
 
 - Retrospective insight: deterministic vault scoring (0–10 integer) with a fixed Discord threshold (`score < 7 → alert`) is more reliable than qualitative judgement in automated cron jobs. The integer is directly comparable, log-friendly, and requires no LLM. Applied to any agent project that runs daily vault/health checks via bash cron.
 

@@ -1,19 +1,19 @@
 # knowledge/
 
-Este diretório armazena conhecimento de domínio consumível pelos 6 projetos do ecossistema didio (blind-warrior, access-play-create, escudo-do-mestre-v1, mellon-bot, mellon-magic-maker, claude-didio-config) via MCP server (planejado em F02). Cada artigo é um arquivo Markdown com frontmatter YAML obrigatório que permite indexação, busca e filtragem por projeto ou domínio.
+Este diretório armazena conhecimento de domínio consumível pelos 6 projetos do ecossistema didio (projeto-a, projeto-b, projeto-c, projeto-d, projeto-e, claude-didio-config) via MCP server (planejado em F02). Cada artigo é um arquivo Markdown com frontmatter YAML obrigatório que permite indexação, busca e filtragem por projeto ou domínio.
 
 ## Estrutura
 
 ```
 knowledge/
 ├── accessibility/       # WCAG, screen readers, ARIA, audio-first UX, teclado, contraste
-│                        #   → relevante p/ blind-warrior, access-play-create
+│                        #   → relevante p/ projeto-a, projeto-b
 ├── crypto-trading/      # trading bots, market making, order book, indicadores técnicos
-│                        #   → relevante p/ mellon-bot (mellon-magic-maker se aplicável)
+│                        #   → relevante p/ projeto-d (projeto-e se aplicável)
 ├── game-engine/         # game loops, ECS, spatial audio, state machines
-│                        #   → relevante p/ blind-warrior, escudo-do-mestre-v1
+│                        #   → relevante p/ projeto-a, projeto-c
 └── react-patterns/      # hooks, composition, state management, React Query, WebSocket
-                         #   → relevante p/ access-play-create, mellon-magic-maker
+                         #   → relevante p/ projeto-b, projeto-e
 ```
 
 ## Formato do arquivo
@@ -23,7 +23,7 @@ Todo artigo deve começar com o frontmatter YAML abaixo. Todos os 4 campos são 
 ```yaml
 ---
 domain: accessibility          # "accessibility" | "crypto-trading" | "game-engine" | "react-patterns"
-projects: [blind-warrior, access-play-create]  # nomes que casam com projects/registry.yaml
+projects: [projeto-a, projeto-b]  # nomes que casam com projects/registry.yaml
 tags: [wcag, aria, screen-reader]              # lowercase, hyphen-separated
 updated: 2026-04-17                            # data da última revisão (YYYY-MM-DD)
 ---
@@ -38,7 +38,7 @@ O valor de `domain` deve casar literalmente com o nome da subpasta onde o arquiv
 ```markdown
 ---
 domain: accessibility
-projects: [blind-warrior, access-play-create]
+projects: [projeto-a, projeto-b]
 tags: [aria, live-region, screen-reader]
 updated: 2026-04-17
 ---

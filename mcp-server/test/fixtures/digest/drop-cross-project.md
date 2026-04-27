@@ -1,6 +1,6 @@
 ---
 feature: F90
-project: blind-warrior
+project: projeto-a
 created: 2026-04-25T18:30:00Z
 source_commits:
   - abc1234
