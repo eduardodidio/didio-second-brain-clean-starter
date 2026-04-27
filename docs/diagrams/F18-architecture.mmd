@@ -1,0 +1,41 @@
+flowchart TD
+  subgraph hub["didio-second-brain-claude (hub)"]
+    MCP["mcp-server (Bun)"]
+    MEM[("memory/")]
+    KNW[("knowledge/")]
+    PAT[("patterns/")]
+    ADR[("docs/adr/")]
+    HKS["patterns/hooks/*"]
+  end
+
+  subgraph fw["claude-didio-config (framework)"]
+    ORC["orchestrator + waves"]
+    AG["4 agents (architect / dev / techlead / qa)"]
+    CMD["/create-feature · /plan-feature · /didio"]
+  end
+
+  subgraph ds["downstream projects (×6)"]
+    DS["blind-warrior · access-play-create · escudo-do-mestre-v1<br/>mellon-bot · mellon-magic-maker · claude-didio-config"]
+  end
+
+  subgraph obs["observability"]
+    DIS["Discord channels (progress / alert / done)"]
+  end
+
+  %% Import deps
+  ORC --> AG
+  AG --> CMD
+
+  %% Data flows
+  AG -- "memory.search / memory.add" --> MCP
+  AG -- "knowledge.get / patterns.get / adr.get" --> MCP
+  AG -- "projects.list" --> MCP
+  MCP --> MEM
+  MCP --> KNW
+  MCP --> PAT
+  MCP --> ADR
+
+  DS -- "Stop / SubagentStop hooks" --> HKS
+  HKS -- "feature-end-digest → memory.digest_pending" --> MCP
+  HKS -- "subagent-stop-progress / rate-limit-alert / no-pending-work-alert" --> MCP
+  MCP -- "discord.notify → webhook POST" --> DIS

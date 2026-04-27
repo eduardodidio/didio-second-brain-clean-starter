@@ -1,0 +1,25 @@
+flowchart TD
+  subgraph hub["didio-second-brain-claude (hub)"]
+    MCP["MCP server\n(memory · knowledge · patterns · adr · discord)"]
+    LEARN[("memory/agent-learnings/")]
+  end
+
+  FW["claude-didio-config\n(workflow framework)"]
+
+  subgraph downstream["6 downstream projects"]
+    P1["blind-warrior"]
+    P2["access-play-create"]
+    P3["escudo-do-mestre-v1"]
+    P4["mellon-bot"]
+    P5["mellon-magic-maker"]
+    P6["claude-didio-config (self)"]
+  end
+
+  DIS["Discord\n(progress · alert · done)"]
+
+  FW -- "spawns agents in" --> downstream
+  downstream -- "MCP queries\n(memory / knowledge / patterns)" --> MCP
+  downstream -- "Stop / SubagentStop hooks" --> MCP
+  MCP -- "discord.notify\n(webhook POST)" --> DIS
+  downstream -- "feature-end-digest" --> LEARN
+  LEARN -- "next feature reads" --> FW

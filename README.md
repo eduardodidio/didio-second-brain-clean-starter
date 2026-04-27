@@ -17,6 +17,10 @@ This starter gives you a **centralized MCP server** that feeds all your Claude p
 | `knowledge/` | Empty domain knowledge directories — add your own |
 | `projects/registry.yaml` | Empty project registry — add your downstream projects |
 
+## Installation
+
+Follow these steps to set up your second-brain hub and connect it to your Claude Code projects.
+
 ## Prerequisites
 
 - [Claude Code](https://claude.ai/code) installed
@@ -56,6 +60,59 @@ Open any project in Claude Code and use the slash commands:
 /create-feature F01 "description"   → full 4-agent pipeline
 /plan-feature F01 "description"     → architect only (no execution)
 /dashboard          → open monitoring dashboard at localhost:7777
+```
+
+## Synergy with claude-didio-config
+
+The didio ecosystem is split into two complementary layers:
+
+**`claude-didio-config`** is the **workflow engine**: it defines the 4-agent pipeline
+(Architect → Developer → TechLead → QA), the slash commands (`/create-feature`,
+`/plan-feature`, `/didio`), the orchestrator, and the dashboard. It is generic —
+any project can adopt it independently.
+
+**`didio-second-brain-claude`** (this repo) is the **knowledge layer**: it exposes
+an MCP server with the tools `memory.*`, `knowledge.*`, `patterns.*`, `adr.*`, and
+`discord.notify`. It stores cross-project agent-learnings, canonical ADRs, and
+Discord hooks. It is opinionated — it carries the domain of the 6 didio projects
+and curated content for that specific ecosystem.
+
+Why two repos? The framework is reusable by any team; the second-brain is specific
+to the didio ecosystem. You can run `claude-didio-config` without this hub — the
+4-agent pipeline works, but you lose cross-project memory, shared ADRs, and Discord
+notifications. Combined, the agents in each project remember what they learned
+across all the others.
+
+## Architecture overview
+
+Live diagram — source: `docs/diagrams/F18-orchestration-overview.mmd`.
+
+```mermaid
+flowchart TD
+  subgraph hub["didio-second-brain-claude (hub)"]
+    MCP["MCP server\n(memory · knowledge · patterns · adr · discord)"]
+    LEARN[("memory/agent-learnings/")]
+  end
+
+  FW["claude-didio-config\n(workflow framework)"]
+
+  subgraph downstream["6 downstream projects"]
+    P1["blind-warrior"]
+    P2["access-play-create"]
+    P3["escudo-do-mestre-v1"]
+    P4["mellon-bot"]
+    P5["mellon-magic-maker"]
+    P6["claude-didio-config (self)"]
+  end
+
+  DIS["Discord\n(progress · alert · done)"]
+
+  FW -- "spawns agents in" --> downstream
+  downstream -- "MCP queries\n(memory / knowledge / patterns)" --> MCP
+  downstream -- "Stop / SubagentStop hooks" --> MCP
+  MCP -- "discord.notify\n(webhook POST)" --> DIS
+  downstream -- "feature-end-digest" --> LEARN
+  LEARN -- "next feature reads" --> FW
 ```
 
 ## Project structure

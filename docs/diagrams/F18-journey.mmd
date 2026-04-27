@@ -1,0 +1,40 @@
+flowchart LR
+  subgraph dev["👤 Dev"]
+    A1["bash sync/install-mcp-in-project.sh"]
+    A2["/create-feature FXX '...'"]
+  end
+
+  subgraph fw["⚙️ claude-didio-config"]
+    B1["orchestrator spawns Architect"]
+    B2["Architect writes plan"]
+    B3["Developer waves run\n(parallel)"]
+    B4{"registry match?"}
+    B5["TechLead reviews"]
+    B6["QA validates + writes retro"]
+  end
+
+  subgraph hub["🧠 second-brain hub"]
+    C1["MCP: memory.search\n(learnings for role)"]
+    C2["MCP: memory.add\n(retro entry)"]
+    C3["memory/_pending-digest/\n(drop file)"]
+    C4["digest-pending.sh\n(cron daily)"]
+    C5["memory/agent-learnings/\n&lt;role&gt;.md"]
+  end
+
+  subgraph obs["💬 Discord"]
+    D1["#progress\n(subagent-stop-progress hook)"]
+    D2["#alert\n(rate-limit-alert hook)"]
+  end
+
+  A1 --> A2 --> B1
+  B1 -- "memory.search" --> C1
+  C1 --> B2 --> B4
+  B4 -- "project in registry" --> B3
+  B4 -- "unknown project" --> A1
+  B3 -- "Stop hook" --> D1
+  B3 -. "rate-limit?" .-> D2
+  B3 --> B5 --> B6
+  B6 -- "memory.add" --> C2
+  B6 -- "feature-end-digest hook" --> C3
+  C3 --> C4 --> C5
+  C5 -- "next feature reads lesson" --> B1
