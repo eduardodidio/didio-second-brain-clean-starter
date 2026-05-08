@@ -11,3 +11,5 @@ logs/session-budget.json
 .env
 .env.local
 !.env.example
+archive/
+claude-didio-out/

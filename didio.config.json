@@ -55,5 +55,23 @@
     "window_duration_minutes": 300,
     "window_limit_tokens": 200000000,
     "max_snapshot_age_secs": 300
+  },
+  "sharding": {
+    "enabled": true,
+    "brief_lines_threshold": 150,
+    "task_count_threshold": 6
+  },
+  "tea": {
+    "enabled": false
+  },
+  "research": {
+    "web_search_budget": 5,
+    "web_fetch_budget": 3
+  },
+  "poc": {
+    "default_style_ref": "/Users/eduardodidio/mellon-magic-maker",
+    "smoke_timeout_secs": 30,
+    "install_timeout_secs": 180,
+    "build_timeout_secs": 60
   }
 }

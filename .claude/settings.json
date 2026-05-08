@@ -23,7 +23,18 @@
       "Write(logs/**)",
       "Write(mcp-server/**)",
       "Write(patterns/**)",
-      "Write(tasks/**)"
+      "Write(tasks/**)",
+      "Bash(git commit:*)",
+      "Bash(git init:*)",
+      "Bash(git -c user.name=*)",
+      "Bash(mkdir -p:*)",
+      "Bash(cp -r:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run *)",
+      "Bash(curl:*)",
+      "WebSearch",
+      "WebFetch",
+      "AskUserQuestion"
     ]
   },
   "hooks": {
@@ -34,6 +45,10 @@
           {
             "type": "command",
             "command": "bash patterns/hooks/stop-session-summary/hook.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash /Users/eduardodidio/didio-second-brain-claude/patterns/hooks/stop-session-summary/hook.sh"
           }
         ]
       }
@@ -45,6 +60,10 @@
           {
             "type": "command",
             "command": "bash patterns/hooks/subagent-stop-progress/hook.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash /Users/eduardodidio/didio-second-brain-claude/patterns/hooks/subagent-stop-progress/hook.sh"
           }
         ]
       }
@@ -56,6 +75,10 @@
           {
             "type": "command",
             "command": "bash $(didio which hooks)/didio-pre-tool.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash /Users/eduardodidio/claude-didio-config/bin/hooks/didio-pre-tool.sh"
           }
         ]
       }
@@ -67,6 +90,10 @@
           {
             "type": "command",
             "command": "bash patterns/hooks/post-tool-use-error/hook.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash /Users/eduardodidio/didio-second-brain-claude/patterns/hooks/post-tool-use-error/hook.sh"
           }
         ]
       },
@@ -76,6 +103,10 @@
           {
             "type": "command",
             "command": "bash $(didio which hooks)/didio-post-tool.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash /Users/eduardodidio/claude-didio-config/bin/hooks/didio-post-tool.sh"
           }
         ]
       }
